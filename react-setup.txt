@@ -1,0 +1,38 @@
+public/index.html is the main page HTML template of our app that includes the React code and React to render context. Here’s where you’ll find the “root” to enable JavaScript to run the application. It is also known as the mounting point for React apps
+src/index.tsx holds the main render call from the React DOM. It imports our App.tsx component, which tells React where to render it
+
+usage of some of the files and folders included with CRA:
+
+node_modules: It contains the JavaScript libraries and some dependencies of the libraries that we’ve installed. We don’t typically include this folder in our Git repository because it’s quite large, around 100mb–500mb, depending on how many packages we’ve installed in the app.
+
+public/manifest.json: This is a default file included with CRA. When building a Progressive Web App (PWA) off your current React app, the configuration file is needed.
+
+A simplistic explanation of a PWA is that it lets you run your application offline or without Internet connectivity. What it does is that it caches the data or content of your app so you can still see what’s inside your website if the app is offline.
+
+public/robots.txt: Also known as the robots exclusion protocol or standard. You can declare here the pages or HTML that you want to hide from Google’s search results. Sample pages include the admin page because your users don’t need to know your app’s admin page. You can likewise specify here which search engine you want or don’t want to index your site.
+
+src: Contains the app UI code, including components and CSS styling. This is the core of the React app. We can also see the App.tsx, our application’s entry point, and index.tsx, which bootstraps our app.
+
+gitignore: A text file located at the root file; this is where you put files you want Git to ignore, such as your node_modules and .env files. Files already tracked by Git are not affected. Use the command git rm –cached to stop indexing a file that’s already been tracked.
+
+package-lock.json: If you’ve installed Yarn in your machine, by default, CRA will search for the Yarn package manager, but if it’s not available, it will fall back to NPM. If you’re using Yarn, then you’ll see the yarn-lock.json file instead.
+
+package.json: We’ve already discussed package.json in the previous chapter, but to recap, it manages dependencies, scripts, versions, and other metadata of our project app.
+
+tsconfig.json: This file in the directory root indicates that the said directory is the TypeScript project root.
+
+Inside the tsconfig.json is the compilerOptions object with some of the following configurations:
+"target": "es5": Modern browsers support all ES6 features, but you want your code to be backward-compatible to the ECMAScript 2009 or older environments.
+
+"lib": The standard type definition to be included in the type-checking process.
+
+"strict": true: This is the strict compiler option in TypeScript; it means you are opting for a strict-by-default mode of type safety without having to enable each compiler option separately.
+
+"module": "esnext": Specifies the code generation.
+
+"noEmit": true: Do not emit JavaScript source code, source maps, or declarations and instead use Babel.
+
+"jsx": Whether to support JSX in .tsx files.
+
+"include": The files and folders for TypeScript to check.
+

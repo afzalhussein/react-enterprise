@@ -1,0 +1,131 @@
+Semantic Versioning or Semver
+There are several types of versioning, but semantic versioning or semver is one of the most popular.
+
+There are three version numbers to consider in so-called semantic versioning. On its official website, www.semver.org/, we can see the following summary:
+Given a version number MAJOR.MINOR.PATCH, increment the:
+
+MAJOR version when you make incompatible API changes,
+
+MINOR version when you add functionality in a backward-compatible manner, and
+
+PATCH version when you make backward-compatible bug fixes.
+
+Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
+
+An example of semantic versioning is “^3.2.1”.
+
+The first number (3) is the major version, (2) is the minor version, and (1) is the patch version.
+
+The caret ^ tells NPM that we will take in the major version of that scheme; the minor and patch versions can vary. Another way to write this is, for example, 2.x, with 2 being the major version.
+
+In some cases, you will see the tilde ~ (i.e., “~3.2.1”). This particular versioning can be read as “we will take the major version to be 3 and the minor version to be 2, but the patch version can be any number.” You could also write this as 3.2.x.
+
+In case you need the specific numbers for all three versions, simply remove the caret or tilde character.
+
+Tables 2-1 and 2-2 highlight the similarities and differences between the two package managers.
+Table 2-1Common Commands Between NPM and Yarn
+Command
+
+NPM
+
+Yarn
+
+To initialize a project
+
+npm init
+
+yarn init
+
+To set up the defaults
+
+npm init –y
+
+yarn init -y
+
+To check if any package is outdated
+
+npm outdated
+
+yarn outdated
+
+To clear local cache
+
+npm cache clean
+
+yarn cache clean
+
+To run a script
+
+npm run build
+
+yarn run
+
+To see a list of installed dependencies
+
+npm list
+
+yarn list
+
+Table 2-2Different Commands Between NPM and Yarn
+Command
+
+NPM
+
+Yarn
+
+To install dependencies
+
+npm install                             yarn install
+
+To install packages                     npm install[package-name]
+
+yarn add [package-name]                 To uninstall packages
+
+npm uninstall [package-name]            yarn remove [package-name]
+
+To install packages globally            npm install –global [package-name]
+
+yarn global add [package-name]          To uninstall packages globally
+
+npm uninstall –global [package-name]    yarn global remove [package-name]
+
+To update packages * for updating minor and patch releases only
+
+npm update [package-name]               yarn upgrade [package-name]
+
+To install only regular dependencies
+
+npm install --production                yarn --production
+
+To show only the top-level dependencies
+
+npm list -g --depth 0                   yarn list --depth=0
+
+To install and save packages in devDependencies
+
+npm install --save-dev [package-name    yarn add [package-name] -D
+
+Tips in using NPM:
+1.	To generate a package.json file quickly, use npm init –-y.
+2.	Add private: true to package.json to prevent accidental publishing of any private repo.
+3.	Add packages (i.e., transpiling code or running tests) used for development purposes in your devDependencies.
+4.	Don’t delete the package.json, but you can delete the package-lock.json before committing it.
+5.	If you encounter yarn.lock and want to use NPM instead, just delete the yarn.lock and do an npm install to automatically create a package-lock.json in your application.
+6.	You need to run npm install after cloning a project from a Git repository.
+7.	It is not recommended to push node_modules to your source control repo such as Git.
+
+
+npm uninstall -g create-react-app
+or
+yarn global remove create-react-app
+
+This is to ensure that NPX always uses the latest version. Global install of CRA is no longer supported.
+
+npx create-react-app <name-of-your-app> --template typescript
+
+The above will create an app in name of app folder created automatically using typescript template
+
+cd name-of-your-app 
+npm start
+
+The above will start development server with app running in it
