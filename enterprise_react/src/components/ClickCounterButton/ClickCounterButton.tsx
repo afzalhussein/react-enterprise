@@ -5,7 +5,7 @@ class ClickCounterButton extends React.Component<any> {
         return <button
             {...this.props}
         >
-            {this.props.children}
+            {this.props.children} at {this.props.counter}
         </button>
     }
 }

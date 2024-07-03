@@ -5,33 +5,41 @@ import ClickCounterButton from '../ClickCounterButton/ClickCounterButton';
 interface ContentState {
     counter: number;
 }
-class Content extends React.Component<{},ContentState> {
+class Content extends React.Component<{}, ContentState> {
     constructor(props: React.PropsWithChildren) {
         super(props);
         this.state = { counter: 0 };
+        this.handleClick = this.handleClick.bind(this);
+        this.handleClickDecrease = this.handleClickDecrease.bind(this);
     }
     handleClick(e: SyntheticEvent) {
-        this.setState({ counter: this.state.counter + 1});
+        this.setState({ counter: this.state.counter + 1 });
     }
 
     handleClickDecrease(e: SyntheticEvent) {
-        this.setState({ counter: this.state.counter - 1})
+        this.setState({ counter: this.state.counter - 1 })
     }
     render() {
         return (
-            <div>
-                <ClickCounterButton
-                    onClick={this.handleClick.bind(this)}
-                    className="btn btn-primary"
-                >
-                    Don't click me {this.state.counter} times!
-                </ClickCounterButton>
-                <ClickCounterButton
-                    onClick={this.handleClickDecrease.bind(this)}
-                >
-                    Click to decrease the counter {this.state.counter}
-                </ClickCounterButton>
-            </div>
+            <>
+                <div>
+                    <ClickCounterButton
+                        onClick={this.handleClick}
+                        className="btn btn-primary"
+                        counter={this.state.counter}
+                    >
+                        Don't click me
+                    </ClickCounterButton>
+                    <ClickCounterButton
+                        onClick={this.handleClickDecrease}
+                        counter={this.state.counter}
+                    >
+                        Click to decrease the counter
+                    </ClickCounterButton>
+                </div>
+                <p>{this.state.counter}</p>
+                <br />
+            </>
         );
     }
 }
