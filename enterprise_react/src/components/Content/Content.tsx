@@ -1,6 +1,7 @@
 import React, { SyntheticEvent } from "react";
 import './content.css';
 import ClickCounterButton from '../ClickCounterButton/ClickCounterButton';
+import Counter from "../Counter/Counter";
 
 interface ContentState {
     counter: number;
@@ -25,7 +26,6 @@ class Content extends React.Component<{}, ContentState> {
                 <div>
                     <ClickCounterButton
                         onClick={this.handleClick}
-                        className="btn btn-primary"
                         counter={this.state.counter}
                     >
                         Don't click me
@@ -37,8 +37,7 @@ class Content extends React.Component<{}, ContentState> {
                         Click to decrease the counter
                     </ClickCounterButton>
                 </div>
-                <p>{this.state.counter}</p>
-                <br />
+                <Counter counter={this.state.counter}></Counter>
             </>
         );
     }
